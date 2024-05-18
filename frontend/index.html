@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud Gazin</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/bootstrap.min.css">
+</head>
+<script>
+    const BASE_URL = "http://localhost/crudgazin/backend/public/";
+</script>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Menu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#desenvolvedores">CRUD Pessoas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nivel">CRUD Níveis</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal niveis -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title staticBackdropLabel" id="staticBackdropLabel">Inserir Nivel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nivel" class="form-label">Nivel:</label>
+                        <input type="text" class="form-control nivel" id="nivel" name="nivel" required>
+                        <input type="hidden" class="form-control idnivel" id="idnivel" name="idnivel">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btnInserir" class="btn btn-primary btnInserir"
+                        onclick="salvar();">Inserir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal devs -->
+    <div class="modal fade" id="modalDev" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalDevLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <input type="hidden" class="form-control iddev" id="iddev" name="iddev">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDevLabel">Inserir Desenvolvedor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Desenvolvedor:</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sexo" class="form-label">Sexo:</label>
+                        <select class="form-select" id="sexo" name="sexo" required>
+                            <option value="">Selecione...</option>
+                            <option value="Masculino">M</option>
+                            <option value="Feminino">F</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="data_nascimento" class="form-label">Data Nascimento:</label>
+                        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="idade" class="form-label">Idade:</label>
+                        <input type="number" class="form-control" id="idade" name="idade" required disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="hobby" class="form-label">Hobby:</label>
+                        <input type="text" class="form-control" id="hobby" name="hobby">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nivelselect" class="form-label">Nível:</label>
+                        <select class="form-select" id="nivelselect" name="nivelselect">
+                            <option value="" selected disabled>Selecione o nível</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="salvarDev();">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content"></main>
+    <script src="./src/js/bootstrap.min.js"></script>
+    <script src="./src/js/sweetalert2@11.js"></script>
+    <script src="./src/js/ry.js"></script>
+    <script src="./src/js/index.js"></script>
+    <script src="./src/js/functionNiveis.js"></script>
+    <script src="./src/js/functionDesenvolvedores.js"></script>
+
+</body>
+
+</html>
